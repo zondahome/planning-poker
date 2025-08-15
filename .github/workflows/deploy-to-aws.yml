@@ -5,13 +5,7 @@ name: Deploy to AWS S3
       - master
 env:
   BUILD_FOLDER: ${{ vars.BUILD_FOLDER }}
-  VITE_FB_API_KEY: '${{ secrets.REACT_APP_FB_API_KEY }}'
-  VITE_FB_AUTH_DOMAIN: '${{ secrets.REACT_APP_FB_AUTH_DOMAIN }}'
-  VITE_FB_PROJECT_ID: '${{ secrets.REACT_APP_FB_PROJECT_ID }}'
-  VITE_FB_STORAGE_BUCKET: '${{ secrets.REACT_APP_FB_STORAGE_BUCKET }}'
-  VITE_FB_MESSAGING_SENDER_ID: '${{ secrets.REACT_APP_FB_MESSAGING_SENDER_ID }}'
-  VITE_FB_APP_ID: '${{ secrets.REACT_APP_FB_APP_ID }}'
-  VITE_FB_MEASUREMENT_ID: '${{ secrets.REACT_APP_FB_MEASUREMENT_ID }}'
+
 jobs:
   build_and_deploy:
     environment: production
@@ -20,7 +14,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
+      - name: Create env File
+        run: |
+          touch .env
+          echo VITE_FB_API_KEY=${{ secrets.VITE_FB_API_KEY }} >> .env
+          echo VITE_FB_AUTH_DOMAIN=${{ secrets.VITE_FB_AUTH_DOMAIN  }} >> .env
+          echo VITE_FB_PROJECT_ID=${{ secrets.VITE_FB_PROJECT_ID }} >> .env
+          echo VITE_FB_STORAGE_BUCKET=${{ secrets.VITE_FB_STORAGE_BUCKET }} >> .env
+          echo VITE_FB_MESSAGING_SENDER_ID=${{ secrets.VITE_FB_MESSAGING_SENDER_ID }} >> .env
+          echo VITE_FB_APP_ID=${{ secrets.VITE_FB_APP_ID }} >> .env
+          echo VITE_FB_MEASUREMENT_ID=${{ secrets.VITE_FB_MEASUREMENT_ID }} >> .env
+
       - name: "Install & Build"
         run: yarn && yarn build
       
