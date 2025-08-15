@@ -13,7 +13,10 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FB_APP_ID,
   measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
-
+console.log('process env:', import.meta.env); 
+console.log('VITE_FB_API_KEY:', import.meta.env.VITE_FB_API_KEY);
+console.log('process env', process.env);
+console.log('Firebase config:', firebaseConfig);
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const gamesCollectionName = 'games';
