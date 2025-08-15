@@ -11,6 +11,15 @@ const firebaseConfig = {
 	measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
 
+// Debug missing configuration in production (safe values are just presence/length, not actual secrets)
+const missing = Object.entries(firebaseConfig)
+	.filter(([_, v]) => !v)
+	.map(([k]) => k);
+if (missing.length) {
+	// eslint-disable-next-line no-console
+	console.warn('[firebase] Missing env vars:', missing.join(', '));
+}
+
 // Initialize only once
 if (!firebase.apps.length) {
 	try {
