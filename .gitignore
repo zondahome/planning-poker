@@ -2,7 +2,7 @@ node_modules
 build
 yarn-error.log
 coverage
-.env
+.env*
 firestore-debug.log
 firebase-debug.log
 android
