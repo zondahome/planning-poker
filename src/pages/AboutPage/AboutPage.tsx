@@ -1,11 +1,5 @@
 import { Box, Grid, Slide, Typography } from '@material-ui/core';
-import How from './../../images/how.jpg';
-import What from './../../images/what.jpg';
-import BestPractices from './../../images/best-practices.jpg';
-
-import Benefits from './../../images/benefits.jpg';
-
-import '../HomePage/HomePage.css';
+// Removed missing images (how.jpg, what.jpg, best-practices.jpg, benefits.jpg) and CSS file.
 
 export const AboutPage = () => {
   return (
@@ -45,7 +39,7 @@ export const AboutPlanningPokerContent = () => {
           <Slide in={true} direction='up' timeout={2000}>
             <div className='HomePageContainer'>
               <Box padding={2}>
-                <img alt='What' src={What}></img>
+                {/* Image removed (what.jpg not present) */}
               </Box>
             </div>
           </Slide>
@@ -58,7 +52,7 @@ export const AboutPlanningPokerContent = () => {
           <Slide in={true} direction='up' timeout={2000}>
             <div className='HomePageContainer'>
               <Box padding={2}>
-                <img alt='How' src={How}></img>
+                {/* Image removed (how.jpg not present) */}
               </Box>
             </div>
           </Slide>
@@ -127,7 +121,7 @@ export const AboutPlanningPokerContent = () => {
           <Slide in={true} direction='up' timeout={2000}>
             <div className='HomePageContainer'>
               <Box padding={2}>
-                <img alt='Benefits' src={Benefits}></img>
+                {/* Image removed (benefits.jpg not present) */}
               </Box>
             </div>
           </Slide>
@@ -140,7 +134,7 @@ export const AboutPlanningPokerContent = () => {
           <Slide in={true} direction='up' timeout={2000}>
             <div className='HomePageContainer'>
               <Box padding={2}>
-                <img alt='BestPractices' src={BestPractices}></img>
+                {/* Image removed (best-practices.jpg not present) */}
               </Box>
             </div>
           </Slide>
