@@ -4,7 +4,6 @@ import { updatePlayerValue } from '../../../service/players';
 import { Game } from '../../../types/game';
 import { Player } from '../../../types/player';
 import { Status } from '../../../types/status';
-import { GoogleAd } from '../../GoogleAd/GoogleAd';
 import { CardConfig, getCards, getRandomEmoji } from './CardConfigs';
 
 interface CardPickerProps {
@@ -97,7 +96,6 @@ export const CardPicker: React.FC<CardPickerProps> = ({ game, players, currentPl
           );
         })}
       </div>
-      <GoogleAd />
     </div>
   );
 };
