@@ -9,14 +9,18 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    fallbackNS: 'US',
     debug: false,
-    react: {
-      useSuspense: true,
+    supportedLngs: ['en', 'en-US', 'de-DE', 'es-ES', 'fr', 'hi-IN', 'nl-NL', 'pt-BR', 'ru-RU', 'ta-IN', 'zh-Hant'],
+    load: 'languageOnly',
+    backend: {
+      loadPath: '/locales/{{lng}}/translation.json',
     },
-    interpolation: {
-      escapeValue: false,
+    detection: {
+      order: ['querystring', 'localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
+    react: { useSuspense: true },
+    interpolation: { escapeValue: false },
   });
 
 export default i18n;

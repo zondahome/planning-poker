@@ -1,0 +1,52 @@
+{
+  "_meta": "Duplicate of en/translation.json to satisfy en-US locale requests",
+  "toolbar": {
+    "menu": {
+      "about": "What is planning poker?",
+      "guide": "Guide",
+      "examples": "Examples",
+      "newSession": "New session",
+      "joinSession": "Join session"
+    }
+  },
+  "HomePage": {
+    "heroSection": {
+      "title": "Free Planning Poker App",
+      "description": "Free / Open source Planning Poker Web App to estimate user stories for your Agile/Scrum teams. Create a session and invite your team members to estimate user stories efficiently."
+    }
+  },
+  "GameController": {
+    "autoReveal": "Auto Reveal",
+    "average": "Average",
+    "reveal": "Reveal",
+    "restart": "Restart",
+    "delete": "Delete",
+    "exit": "Exit",
+    "invite": "Invite",
+    "storyName": "Story Name",
+    "enterStoryName": "Enter story name or number",
+    "inviteLinkCopied": "Invite Link copied to clipboard",
+    "areYouSureDelete": "Are you sure? This will delete this session and remove all players.",
+    "inProgress": "In Progress",
+    "finished": "Finished"
+  },
+  "CardPicker": {
+    "ClickOnTheCardToVote": "Click on the card to vote",
+    "SessionNotReadyForVotingWaitForModeratorToStart": "Session not ready for Voting! Wait for moderator to start"
+  },
+  "CreateGame": {
+    "newSessionHeader": "Create new session",
+    "sessionNameLabel": "Session name",
+    "yourNameLabel": "Your name",
+    "sessionSizingType": "Session Sizing Type",
+    "fibonacci": "Fibonacci (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)",
+    "shortFibonacci": "Short Fibonacci (0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100)",
+    "tShirt": "T-Shirt (XXS, XS, S, M, L, XL, XXL)",
+    "tShirtAndNumber": "T-Shirt & Numbers (S, M, L, XL, 1, 2, 3, 4, 5)",
+    "custom": "Custom",
+    "pleaseEnterValues": "Please enter values for at least two custom option.",
+    "allowMembersToManageSession": "Allow members to manage session",
+    "creating": "Creating...",
+    "create": "Create"
+  }
+}

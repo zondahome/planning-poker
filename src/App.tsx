@@ -1,4 +1,5 @@
 import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Suspense } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Loading } from './components/Loading/Loading';
@@ -13,9 +14,12 @@ import JoinPage from './pages/JoinPage/JoinPage';
 
 polyfillCountryFlagEmojis();
 
+const theme = createMuiTheme({});
+
 function App() {
   return (
-    <div className='bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen'>
+    <ThemeProvider theme={theme}>
+      <div className='bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen'>
       <Suspense
         fallback={
           <div className='text-center items-center justify-center flex'>
@@ -36,7 +40,8 @@ function App() {
           </Switch>
         </Router>
       </Suspense>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
