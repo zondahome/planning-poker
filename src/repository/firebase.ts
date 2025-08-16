@@ -4,31 +4,17 @@ import 'firebase/firestore';
 import { Game } from '../types/game';
 import { Player } from '../types/player';
 
-// const firebaseConfig = {
-//   apiKey: import.meta.env.VITE_FB_API_KEY,
-//   authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
-//   projectId: import.meta.env.VITE_FB_PROJECT_ID,
-//   storageBucket: import.meta.env.VITE_FB_STORAGE_BUCKET,
-//   messagingSenderId: import.meta.env.VITE_FB_MESSAGING_SENDER_ID,
-//   appId: import.meta.env.VITE_FB_APP_ID,
-//   measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
-// };
-console.log('process env:', import.meta.env); 
-// console.log('VITE_FB_API_KEY:', import.meta.env.VITE_FB_API_KEY);
-console.log('process env', process.env);
-// console.log('Firebase config:', firebaseConfig);
-// Initialize Firebase
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBn-WU9vVw9mCwlzlLnSUAUWLG4j1VGo2o",
-  authDomain: "planning-poker-tj.firebaseapp.com",
-  projectId: "planning-poker-tj",
-  storageBucket: "planning-poker-tj.firebasestorage.app",
-  messagingSenderId: "778646963505",
-  appId: "1:778646963505:web:d1f18e7352de022cba1c10",
-  measurementId: "G-D07JNP3F89"
+  apiKey: import.meta.env.VITE_FB_API_KEY,
+  authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FB_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FB_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FB_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FB_APP_ID,
+  measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
-
+console.log('Firebase config:', firebaseConfig);
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const gamesCollectionName = 'games';
 const playersCollectionName = 'players';
