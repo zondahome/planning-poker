@@ -87,7 +87,10 @@ export const Toolbar = () => {
                 startIcon={<MergeTypeOutlinedIcon />}
                 size={isSmallScreen ? 'small' : 'large'}
                 color='inherit'
-                onClick={() => history.push('/retro/join')}
+                onClick={() => {
+                  const retroId = prompt('Enter Retro ID:');
+                  if (retroId) history.push(`/retro/join/${retroId}`);
+                }}
               >
                 {!isSmallScreen ? 'Join Retro' : null}
               </Button>

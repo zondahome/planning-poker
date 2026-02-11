@@ -1,25 +1,30 @@
-import { RetroParticipant, RetroSession } from '../../../types/retro';
+import { RetroParticipant, RetroSession, RetroPhase } from '../../../types/retro';
 
 interface RetroSidebarProps {
   retro: RetroSession;
   participants: RetroParticipant[];
   currentParticipantId?: string;
+  onPhaseChange: (phase: RetroPhase) => void;
 }
 
 const navSections = [
-  { key: 'icebreaker', label: 'Icebreaker' },
-  { key: 'team-health', label: 'Team Health', disabled: true },
-  { key: 'reflect', label: 'Reflect', disabled: true },
-  { key: 'group', label: 'Group', disabled: true },
-  { key: 'vote', label: 'Vote', disabled: true },
-  { key: 'discuss', label: 'Discuss', disabled: true },
+  { key: RetroPhase.Icebreaker, label: 'Icebreaker' },
+  { key: RetroPhase.TeamHealth, label: 'Team Health' },
+  { key: RetroPhase.Reflect, label: 'Reflect' },
+  { key: RetroPhase.Group, label: 'Group', disabled: true },
+  { key: RetroPhase.Vote, label: 'Vote', disabled: true },
+  { key: RetroPhase.Discuss, label: 'Discuss', disabled: true },
 ];
 
 export const RetroSidebar: React.FC<RetroSidebarProps> = ({
   retro,
   participants,
   currentParticipantId,
+  onPhaseChange,
 }) => {
+  const currentPhase = retro.currentPhase || RetroPhase.Icebreaker;
+  const isFacilitator = retro.createdById === currentParticipantId;
+
   return (
     <div className='w-56 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col h-full'>
       <div className='px-4 py-3 border-b border-gray-200 dark:border-gray-800'>
@@ -29,17 +34,31 @@ export const RetroSidebar: React.FC<RetroSidebarProps> = ({
           </span>
           {retro.name}
         </h2>
-        <p className='text-xs text-blue-600 dark:text-blue-400 mt-0.5'>Facilitator</p>
+        <p className='text-xs text-blue-600 dark:text-blue-400 mt-0.5'>
+          {isFacilitator ? 'Facilitator' : 'Participant'}
+        </p>
       </div>
       <nav className='flex-1 overflow-y-auto py-2 text-sm'>
-        {navSections.map(sec => (
-          <div
-            key={sec.key}
-            className={`px-4 py-2 flex items-center gap-2 cursor-pointer ${sec.disabled ? 'opacity-40 cursor-not-allowed' : 'hover:bg-gray-100 dark:hover:bg-gray-800'} transition`}
-          >
-            <span>{sec.label}</span>
-          </div>
-        ))}
+        {navSections.map(sec => {
+          const isActive = currentPhase === sec.key;
+          const isDisabled = sec.disabled;
+
+          return (
+            <div
+              key={sec.key}
+              onClick={() => !isDisabled && onPhaseChange(sec.key)}
+              className={`px-4 py-2 flex items-center gap-2 transition ${
+                isDisabled
+                  ? 'opacity-40 cursor-not-allowed'
+                  : isActive
+                  ? 'bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 font-medium cursor-pointer'
+                  : 'hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer'
+              }`}
+            >
+              <span>{sec.label}</span>
+            </div>
+          );
+        })}
         <div className='mt-4 px-4 text-[11px] uppercase tracking-wide text-gray-500'>Participants</div>
         <ul className='mt-1'>
           {participants.map(p => (
