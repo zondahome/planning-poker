@@ -8,6 +8,7 @@ import MergeTypeOutlinedIcon from '@material-ui/icons/MergeTypeOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import BookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import ReplayIcon from '@material-ui/icons/History';
 import { useHistory } from 'react-router-dom';
 // Removed missing './Toolbar.css'; using Tailwind utilities instead.
 import { useTranslation } from 'react-i18next';
@@ -72,6 +73,23 @@ export const Toolbar = () => {
                 data-testid='toolbar.menu.joinSession'
               >
                 {!isSmallScreen ? t('toolbar.menu.joinSession') : null}
+              </Button>
+              <Button
+                title='New Retro'
+                startIcon={<ReplayIcon />}
+                color='inherit'
+                onClick={() => history.push('/retro/new')}
+              >
+                {!isSmallScreen ? 'New Retro' : null}
+              </Button>
+              <Button
+                title='Join Retro'
+                startIcon={<MergeTypeOutlinedIcon />}
+                size={isSmallScreen ? 'small' : 'large'}
+                color='inherit'
+                onClick={() => history.push('/retro/join')}
+              >
+                {!isSmallScreen ? 'Join Retro' : null}
               </Button>
             </div>
           </div>

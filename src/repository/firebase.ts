@@ -21,6 +21,7 @@ const playersCollectionName = 'players';
 const db = firebase.firestore();
 db.settings({ experimentalAutoDetectLongPolling: true });
 // Use Firestore Emulator if the environment variable is set
+console.log('FIRESTORE', import.meta.env.VITE_USE_FIRESTORE_EMULATOR);
 if (import.meta.env.VITE_USE_FIRESTORE_EMULATOR === 'true') {
   console.log('Using Firestore Emulator');
   // application host name

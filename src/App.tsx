@@ -11,6 +11,9 @@ import { GamePage } from './pages/GamePage/GamePage';
 import { GuidePage } from './pages/GuidePage/GuidePage';
 import HomePage from './pages/HomePage/HomePage';
 import JoinPage from './pages/JoinPage/JoinPage';
+import { RetroBoardPage } from './pages/RetroBoardPage/RetroBoardPage';
+import { RetroCreatePage } from './pages/RetroCreatePage/RetroCreatePage';
+import { RetroJoinPage } from './pages/RetroJoinPage/RetroJoinPage';
 
 polyfillCountryFlagEmojis();
 
@@ -33,6 +36,10 @@ function App() {
             <Route path='/game/:id' component={GamePage} />
             <Route path='/delete-old-games' component={DeleteOldGames} />
             <Route path='/join/:id' component={JoinPage} />
+            {/* Retro routes */}
+            <Route path='/retro/new' component={RetroCreatePage} />
+            <Route path='/retro/join/:id' component={RetroJoinPage} />
+            <Route path='/retro/:id' component={RetroBoardPage} />
             <Route path='/about-planning-poker' component={AboutPage} />
             <Route path='/examples' component={ExamplesPage} />
             <Route path='/guide' component={GuidePage} />

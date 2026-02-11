@@ -10,7 +10,7 @@ const firebaseConfig = {
 	appId: import.meta.env.VITE_FB_APP_ID,
 	measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
-
+console.log('[firebase] Config:', firebaseConfig);
 // Debug missing configuration in production (safe values are just presence/length, not actual secrets)
 const missing = Object.entries(firebaseConfig)
 	.filter(([_, v]) => !v)
