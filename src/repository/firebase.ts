@@ -13,7 +13,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FB_APP_ID,
   measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
-console.log('Firebase config:', firebaseConfig);
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const gamesCollectionName = 'games';
@@ -138,20 +137,13 @@ export const removeOldGameFromStore = async () => {
     .where('createdAt', '<', requiredDate)
     .get();
 
-  console.log('Games length', games.docs.length);
   if (games.docs.length > 0) {
-    const data = games.docs[0].data();
-    console.log(data);
-    console.log(games.docs[games.docs.length - 1].data());
-    console.log(data.createdAt.toDate().toString());
-    console.log(games.docs[games.docs.length - 1].data().createdAt.toDate().toString());
     const gamesCollection: any = [];
 
     games.forEach((game) => {
       gamesCollection.push(game);
     });
     for (let game of gamesCollection) {
-      console.log('Deleting:', game.data().name);
       const players = await game.ref.collection(playersCollectionName).get();
       const playersCollection: any = [];
       players.forEach((player: Player) => {
@@ -161,7 +153,6 @@ export const removeOldGameFromStore = async () => {
         await player.ref.delete();
       }
       await game.ref.delete();
-      console.log('deleted');
     }
   }
 
