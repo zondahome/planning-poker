@@ -114,10 +114,10 @@
     "js-yaml": ">=4.1.1",
     "@babel/runtime": ">=7.26.10",
     "braces": ">=3.0.3",
-    "path-to-regexp": ">=1.9.0",
-    "node-fetch": ">=2.6.7",
-    "ansi-regex": ">=5.0.1",
-    "protobufjs": ">=6.11.4",
-    "@grpc/grpc-js": ">=1.8.22"
+    "path-to-regexp": "~1.9.0",
+    "node-fetch": "~2.7.0",
+    "ansi-regex": "~5.0.1",
+    "protobufjs": "~6.11.4",
+    "@grpc/grpc-js": "~1.12.6"
   }
 }
