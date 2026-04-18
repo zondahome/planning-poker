@@ -1,6 +1,6 @@
-import 'firebase/analytics';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/analytics';
+import 'firebase/compat/firestore';
 import { Game } from '../types/game';
 import { Player } from '../types/player';
 
