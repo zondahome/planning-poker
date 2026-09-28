@@ -1,4 +1,4 @@
-import { Button, Slide, useMediaQuery } from '@material-ui/core';
+import { Button, Slide, useMediaQuery, useTheme } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import AppToolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +15,8 @@ export const title = 'Planning Poker';
 
 export const Toolbar = () => {
   const history = useHistory();
-  const isSmallScreen = useMediaQuery((theme: any) => theme.breakpoints.down('xs'));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
   const { t } = useTranslation();
 
   return (
